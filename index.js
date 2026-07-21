@@ -11,7 +11,7 @@ const BOT_NAME = "SaintFlix Gen";
 const FOOTER_TEXT = "Powered by AccountGen Bot";
 
 const OWNER_ID = "1399683999659593789";
-const WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1529258026945740932/HygJsAGCL2MSaV114QaDf_d7F4WJZsSGC4IWnEcr4K3hhNmEUPTcej3-jXUjyMc5aSVU";
 
 const CHANNEL_RESTRICTIONS = {
   "cgen": "1529258164669644850"
